@@ -1,0 +1,9 @@
+<div class="field">
+    <div class="card-stack">
+        @for(covercard of [0,1,2,3]; track covercard; let index = $index;) {
+            <img [ngStyle]="{'right.px': index*5}" src="/assets/cards/card_cover.png">
+        }
+        <img (click)="takeCard()" style="right: 25px" class="top-card" src="/assets/cards/card_cover.png">
+        <img (click)="takeCard()" style="right: 25px" *ngIf="pickCardAnimation" class="pick-card" src="/assets/cards/ace_1.png">
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Add new player</h2>
+<mat-dialog-content>
+  <p>Please enter the name of a player:</p>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="playerName">
+  </mat-form-field>
+  <p>At least 2 players are needed!</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [disabled]="playerName.length < 1" [mat-dialog-close]="playerName">Ok</button>
+</mat-dialog-actions>

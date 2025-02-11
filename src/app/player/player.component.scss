@@ -13,7 +13,7 @@
         margin-left: 16px;
     }
 
-    background-color: orange;
+    background-color: grey;
 
     img {
         height: 48px;
@@ -22,4 +22,8 @@
         border-radius: 100%;
         margin: 2px;
     }
+}
+
+.player-active {
+    background-color: orange !important;
 }

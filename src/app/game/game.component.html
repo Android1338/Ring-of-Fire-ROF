@@ -1,6 +1,10 @@
 @for(player of game.players; track player; let index = $index) {
-    <app-player class="player-position" [playerActive]="index === game.currentPlayer" [playerName]="player" [ngStyle]="{'top.px': 1 + (index*60)}"></app-player>
+    <app-player class="player-position hide-mobile" [playerActive]="index === game.currentPlayer" [playerName]="player" [ngStyle]="{'top.px': 1 + (index*60)}"></app-player>
+    <div class="scroll-container hide-desktop">
+        <app-player-mobile [playerActive]="index === game.currentPlayer" [playerName]="player"></app-player-mobile>
+    </div>
 }
+
 <div class="field" style="background-image: url('assets/wood_bg.jpg');">
     <div class="card-stack">
         @if(this.game.playedCards.length > 0) {

@@ -12,17 +12,17 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GameInfoComponent } from "../game-info/game-info.component"; 
-import { Firestore, collection, collectionData, addDoc, getDoc, query, onSnapshot, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, docData, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { PlayerMobileComponent } from "../player-mobile/player-mobile.component";
 
 
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent, MatButtonModule, MatDividerModule, MatIconModule, MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule, MatDialogModule, GameInfoComponent],
+  imports: [CommonModule, PlayerComponent, MatButtonModule, MatDividerModule, MatIconModule, MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule, MatDialogModule, GameInfoComponent, PlayerMobileComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
@@ -92,8 +92,7 @@ export class GameComponent implements OnInit {
           this.saveGame();
   
           setTimeout(() => {
-            this.game.pickCardAnimation = false;
-            this.saveGame();            
+            this.game.pickCardAnimation = false;       
             this.game.playedCards.push(this.game.currentCard);
 
             if(this.game.currentPlayer+1 >= this.game.players.length) {

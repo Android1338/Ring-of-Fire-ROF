@@ -80,4 +80,19 @@
     left: 100px;
     right: 100px;
     color: white;
+
+    @media (max-width: 720px) {
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.scroll-container {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    overflow-y: scroll;
+    height: 72px;
 }

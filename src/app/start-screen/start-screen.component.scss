@@ -6,6 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 960px) {
+        overflow: hidden;
+    }
     img {
         height: 100vh;
     }
@@ -21,6 +24,9 @@
     img {
         height: auto;
         width: 20vw;
+        @media (max-width: 960px) {
+            width: 320px;
+        }
         cursor: pointer;
         &:hover {
             filter:brightness(1.2)

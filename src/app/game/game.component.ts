@@ -16,6 +16,7 @@ import { Firestore, collection, collectionData, doc, docData, updateDoc } from '
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerMobileComponent } from "../player-mobile/player-mobile.component";
+import { EditPlayerComponent } from '../edit-player/edit-player.component';
 
 
 
@@ -37,6 +38,7 @@ export class GameComponent implements OnInit {
   singleDocument: any;
   public gameData: any;
   unsubGameData: any;
+  gameOver = false;
 
   
 
@@ -60,10 +62,31 @@ export class GameComponent implements OnInit {
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCards = game.playedCards;
           this.game.players = game.players;
+          this.game.playerImages = game.playerImages;
           this.game.stack = game.stack;
           this.game.pickCardAnimation = game.pickCardAnimation;
           this.game.currentCard = game.currentCard;
         })
+      }
+    });
+  }
+
+  editPlayer(playerIndex:number) {
+    console.log('Player', playerIndex)
+    
+    const dialogRef = this.dialog.open(EditPlayerComponent);
+
+    dialogRef.afterClosed().subscribe(change => {
+      if(change) {
+        if(change === 'DELETE') {
+          this.game.players.splice(playerIndex,1);
+          this.game.playerImages.splice(playerIndex,1);
+          this.saveGame();
+        }
+        else {
+          this.game.playerImages[playerIndex] = change;
+          this.saveGame();
+        }
       }
     });
   }
@@ -107,7 +130,7 @@ export class GameComponent implements OnInit {
         }
       }
       else {
-        console.log("Spiel beendet!");
+        this.gameOver = true;
       }
     }
   }
@@ -115,15 +138,15 @@ export class GameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
-    dialogRef.afterClosed().subscribe(playerName => {
-      if(playerName) {
-        this.game.players.push(playerName);
+    dialogRef.afterClosed().subscribe(change => {
+      if(change) {
+        this.game.players.push(change);
+        this.game.playerImages.push('default.png')
         this.saveGame();
       }
       if(this.game.players.length < 2) {
         this.openDialog(); }
     });
-
 }
 
 saveGame() {
@@ -135,5 +158,6 @@ saveGame() {
     .catch((err) => {
       console.error("Fehler beim Speichern des Spiels: ", err);
     });
+    
 }
 }

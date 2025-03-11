@@ -11,6 +11,9 @@
     span {
         font-size: 24px;
         margin-left: 16px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     background-color: grey;

@@ -1,5 +1,6 @@
 export class Game {
     public players:string[] = [];
+    public playerImages:string[] = [];
     public stack:string[] = [];
     public playedCards:string[] = [];
     public currentPlayer:number = 0;
@@ -7,7 +8,9 @@ export class Game {
     public currentCard: string = '';
 
     constructor() {
-        for(let index = 1; index < 14; index++) {
+
+        //index < 14
+        for(let index = 1; index < 2; index++) {
             this.stack.push('ace_'+index);
             this.stack.push('clubs_'+index);
             this.stack.push('diamonds_'+index);
@@ -20,6 +23,7 @@ export class Game {
         return {
             gameId: Date.now(),
             players: this.players,
+            playerImages: this.playerImages,
             stack: this.stack,
             playedCards: this.playedCards,
             currentPlayer: this.currentPlayer,

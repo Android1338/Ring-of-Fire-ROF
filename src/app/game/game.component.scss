@@ -96,4 +96,32 @@
     display: flex;
     overflow-y: scroll;
     height: 72px;
+    z-index: 1;
+}
+
+app-player-mobile {
+    padding-left: 8px;
+    cursor: pointer;
+}
+
+app-player, app-player-mobile {
+    cursor: pointer;
+    &:hover {
+        filter: brightness(1.15)
+    }
+}
+
+.gameOver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 500px;
+    left: 0;
+    right: 0;
+    img {
+        height: 300px;
+        width: auto;
+    }
+
 }

@@ -1,0 +1,13 @@
+<div class="display-profile-pictures">
+    <div><h2>Choose your character:</h2></div>
+    <div class="all-profile-pictures">
+    @for(pic of allProfilePictures; track pic; let index = $index) {
+        <img class="profile-picture" [mat-dialog-close]="pic" src="./assets/players/{{pic}}">
+    }</div>
+    <div>
+        <mat-dialog-actions>
+            <button mat-button (click)="dialogRef.close()">Cancel</button>
+            <button mat-button color="warn" [mat-dialog-close]="'DELETE'">Delete player</button>
+        </mat-dialog-actions>
+    </div>
+</div>

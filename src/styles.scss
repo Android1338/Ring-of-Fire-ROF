@@ -2,7 +2,10 @@
 body {
     margin: 0;
 }
-html, body { height: 100%; }
+html, body {
+    height: 100%; 
+    overflow: hidden;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
@@ -17,4 +20,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .hide-mobile {
         display: none !important;
     }
+}
+
+app-edit-player {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h2 {
+    color: white;
 }

@@ -12,9 +12,7 @@ import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDi
   styleUrl: './dialog-add-player.component.scss'
 })
 export class DialogAddPlayerComponent {
-  constructor(
-    private dialogRef: MatDialogRef<DialogAddPlayerComponent>
-  ) {}
+  constructor(private dialogRef: MatDialogRef<DialogAddPlayerComponent>) {}
 
   @Input() playerName:string = ''
   

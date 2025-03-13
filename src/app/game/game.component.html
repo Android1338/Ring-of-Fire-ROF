@@ -8,8 +8,9 @@
 }
 </div>
 
-<div *ngIf="gameOver" class="gameOver">
-    <button mat-button color="info">Start next game</button>
+<div *ngIf="gameOver" class="gameOver" style="background-color: grey; display: flex; flex-direction: column; padding: 8px 0">
+    <div><h2>Game over!</h2></div>
+    <button mat-flat-button color="info"><a href="../../">Start next game</a></button>
 </div>
 
 <div class="field" style="background-image: url('assets/wood_bg.jpg');">
